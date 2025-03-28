@@ -1,12 +1,34 @@
-/* Target the H1 tag directly */
+/* styles.css */
+
+/* Basic styling for the demo; you can customize as you like */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
 h1 {
-    color: blue;
-    text-align: center;
-  }
-  
-  /* Apply styles to all paragraphs */
-  p {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #333;
-  }
+  margin-bottom: 30px;
+}
+
+.slideshow-container {
+  display: inline-block; /* So it adjusts to the content width */
+  position: relative;    /* If you want to absolutely position elements inside */
+}
+
+/* Style for the image */
+.slideshow-container img {
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+/* Style for the buttons */
+button {
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 0 10px;
+}
