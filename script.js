@@ -12,11 +12,35 @@ let currentIndex = 0;
 const photoElement = document.getElementById('photo');
 const prevButton = document.getElementById('prevBtn');
 const nextButton = document.getElementById('nextBtn');
+// Fullscreen feature
+const fullscreenBtn = document.getElementById('fullscreenBtn');
+const slideshowContainer = document.getElementById('slideshowContainer');
+
 
 // Update image source based on the current index.
 function updatePhoto() {
     photoElement.src = images[currentIndex];
 }
+
+
+// Toggles fullscreen for the .slideshow-container element
+function toggleFullscreen() {
+    // Check if we're currently in fullscreen
+    if (!document.fullscreenElement) {
+        // Request fullscreen for the slideshow container
+        if (slideshowContainer.requestFullscreen) {
+            slideshowContainer.requestFullscreen();
+        } 
+    } else {
+        // Exit fullscreen
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
+}
+
+// Listen for clicks on the fullscreen button
+fullscreenBtn.addEventListener('click', toggleFullscreen);
 
 // Event listeners for Previous/Next buttons.
 prevButton.addEventListener('click', () => {
@@ -39,3 +63,4 @@ nextButton.addEventListener('click', () => {
 
 // Initialize the slideshow with the first image.
 updatePhoto();
+
