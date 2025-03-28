@@ -1,0 +1,12 @@
+/* Target the H1 tag directly */
+h1 {
+    color: blue;
+    text-align: center;
+  }
+  
+  /* Apply styles to all paragraphs */
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+  }
