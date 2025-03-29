@@ -15,6 +15,7 @@ h1 {
 .slideshow-container {
   display: inline-block; /* So it adjusts to the content width */
   position: relative;    /* If you want to absolutely position elements inside */
+  margin: 20px auto;
 }
 
 /* Style for the image */
@@ -22,7 +23,7 @@ h1 {
   max-width: 400px;
   height: auto;
   display: block;
-  margin: 0 auto 20px auto;
+  margin: 0 auto;
 }
 
 /* Style for the buttons */
@@ -31,4 +32,24 @@ button {
   font-size: 16px;
   padding: 10px 20px;
   margin: 0 10px;
+}
+
+/* -------------- Fullscreen Mode -------------- */
+.slideshow-container.fullscreen {
+  /* Take up all available fullscreen space */
+  width: 100vw;
+  height: 100vh;
+
+  /* Optionally center the image & have a background color behind it */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black; /* or any color you like */
+}
+
+.slideshow-container.fullscreen img {
+  /* Let the image resize to fill the screen dimension without distortion */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; 
 }
