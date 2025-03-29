@@ -2,8 +2,7 @@
 const images = [
     "photos/photo_1.jpg",
     "photos/photo_2.jpg",
-    "photos/photo_3.jpg"
-  ];
+    "photos/photo_3.jpg"];
   
 // Track currently displayed image index.
 let currentIndex = 0;
@@ -22,6 +21,24 @@ function updatePhoto() {
     photoElement.src = images[currentIndex];
 }
 
+// Event listeners for Previous/Next buttons.
+prevButton.addEventListener('click', () => {
+    currentIndex--;
+    // If we go below 0, wrap around to the last image.
+    if (currentIndex < 0) {
+      currentIndex = images.length - 1;
+    }
+    updatePhoto();
+});
+  
+nextButton.addEventListener('click', () => {
+    currentIndex++;
+    // If we go beyond the last index, wrap around to the first.
+    if (currentIndex >= images.length) {
+      currentIndex = 0;
+    }
+    updatePhoto();
+});
 
 // Toggles fullscreen for the .slideshow-container element
 function toggleFullscreen() {
@@ -42,23 +59,15 @@ function toggleFullscreen() {
 // Listen for clicks on the fullscreen button
 fullscreenBtn.addEventListener('click', toggleFullscreen);
 
-// Event listeners for Previous/Next buttons.
-prevButton.addEventListener('click', () => {
-    currentIndex--;
-    // If we go below 0, wrap around to the last image.
-    if (currentIndex < 0) {
-      currentIndex = images.length - 1;
+// Listen for changes in the fullscreen state
+document.addEventListener('fullscreenchange', () => {
+    if (document.fullscreenElement === slideshowContainer) {
+      // We are in fullscreen and the container is the fullscreen element
+      slideshowContainer.classList.add('fullscreen');
+    } else {
+      // We have exited fullscreen (or a different element is in fullscreen)
+      slideshowContainer.classList.remove('fullscreen');
     }
-    updatePhoto();
-});
-  
-nextButton.addEventListener('click', () => {
-    currentIndex++;
-    // If we go beyond the last index, wrap around to the first.
-    if (currentIndex >= images.length) {
-      currentIndex = 0;
-    }
-    updatePhoto();
 });
 
 // Initialize the slideshow with the first image.

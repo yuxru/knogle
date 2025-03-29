@@ -10,13 +10,16 @@
 <body>
 
     <h1>Photo Display</h1>
-    <div class="slideshow-container">
+    <!-- slideshowContainer id allows fullscreen request for specific element-->
+    <div class="slideshow-container" id="slideshowContainer">
         <!-- Slideshow Image -->
-        <img id="photo" src="photo_1.jpg" alt="Slideshow Photo">
+        <img id="photo" src="photos/photo_1.jpg" alt="Slideshow Photo">
         <!-- Navigation Buttons -->
         <div>
             <button id="prevBtn">Previous</button>
             <button id="nextBtn">Next</button>
+            <!-- Fullscreen Button (using Unicode symbol) -->
+            <button id="fullscreenBtn">⛶</button>
         </div>
     </div>
 
